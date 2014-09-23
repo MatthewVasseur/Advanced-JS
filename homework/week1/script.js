@@ -8,14 +8,15 @@ $(document).ready(function() {
   $("#new").click(function() {
     populate("http://www.reddit.com/new.json");
   });
+
   $("#petitions").click(function() {
-    populate("https://www.api.whitehouse.gov/v1/petitions.json");
+    populate("http://api.whitehouse.gov/v1/petitions.json?limit=3&offset=0&createdBefore=1352924535");
   });
 });
 
 //puts in data
 var populate = function (link) {
-  $.get(link, function(response) {
+  $.get(link, function(   ) {
     // If you don't understand line 6, you may want to read up
     // on Javascript objects, in the slides or internet.
     var stories = response.data.children;
