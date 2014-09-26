@@ -2,7 +2,12 @@ console.log("javascript working!"); // Just to test.
 $(document).ready(function() {
   populate("http://www.reddit.com/hot.json");
 
-  $("#hot").click(function() {
+  $("#hot").click(function(e) {
+    if (e.pageY >= 100)
+      alert("LOW BLOW!");
+    else
+      alert("Good move!");
+
     populate("http://www.reddit.com/hot.json");
   });
   $("#new").click(function() {
@@ -16,7 +21,7 @@ $(document).ready(function() {
 
 //puts in data
 var populate = function (link) {
-  $.get(link, function(   ) {
+  $.get(link, function(response) {
     // If you don't understand line 6, you may want to read up
     // on Javascript objects, in the slides or internet.
     var stories = response.data.children;
@@ -43,4 +48,3 @@ var populate = function (link) {
     }
   })
 };
-
