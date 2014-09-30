@@ -97,14 +97,14 @@ var getFB = function() {
       // Access token obtained at https://developers.facebook.com/tools/explorer
       // Note that it expires after a while, so you occasionally need to go back
       //   and get another one.
-      access_token: "CAACEdEose0cBAD4wOHQldaUC3D3Duj5mw4ZCjsss62HbZB7BLQMzJBo1Hcug1OrU4RxHy6IW9L2aKpU00EVjkCGvp87HVH6FZAWnbbt0cjymc9o467StkNfeJxxjwhtk1KgRDWYHCHnhmhGbUfQ9OZAJrYMegQLogAOxZB5UXkDAbuBcecr9rctGgiMQtcwZCZBw41W5Kh2zS2rKYvh0ZBVP"
+      access_token: "CAACEdEose0cBAJDDrbHbiXc8x0DtfYLXc4c4GftPqltnXXL7PUKID8fdhiFSpVlWGCloHEE2afoq9Q1MtsZB9IWO1mU4sYnvCODKVtNAeViTTdCrdjGIFZCqaPZAPRrzfrQ2zhyrqTp1FGQu3krJUd7p2JSZBoO0WSBVR08eMR4ZAydMkxjJQJDBdBfyvWSdPxSgungE9XTA8rv3Lg9x9"
     },
     success: function(response) {
       console.log(response);
       var elem = $("<div></div>");
       elem.append("<p>"+response.id+"</br>"+response.name+"</p>");
       elem.append("<img src="+response.picture.data.url+">");
-      $("body").append(elem);
+      $("body").prepend(elem);
 
     },
     error: function(jxqr, text) {
