@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+        <script src="./angle.js"></script>
+    </head>
+    <body ng-app="HelloAngular">
+        <div ng-controller="HelloCtrl">
+            <label>Name:</label>
+            <input type="text" ng-model="myText">
+            <button ng-click="logText()">click me</button>
+            {{myText}}
+        </div>
+    </body>
+</html>
