@@ -1,5 +1,7 @@
-angular.module("Todo", []).controller("TodoCtrl", function($scope) {
+angular.module("Todo", []).controller("TodoCtrl", function($scope, $window) {
   $scope.newItem = {}
+  $scope.undoStack = []; // serves as a stack
+
   $scope.todoList = [
     { text: "Clean room" },
     { text: "Do homework"},
@@ -12,13 +14,23 @@ angular.module("Todo", []).controller("TodoCtrl", function($scope) {
     }
   }
   $scope.toggleDone = function(index) {
-    $scope.todoList[index].done = !$scope.todoList[index].done;
+    $scope.undoStack.push($scope.todoList.splice(index, 1)[0]);
+  }
+
+  $scope.undo = function () {
+    console.log($scope.todoList);
+    if ($scope.undoStack.length > 0) {
+      $scope.todoList.push($scope.undoStack.pop());
+    }
+
   }
 
   // Ex. 2 Bonus: Detect all keypresses
   angular.element($window).bind("keypress", function(e) {
-    console.log(e);
-    // Do something with the event here
+    if (e.charCode == 26) {
+      $scope.undo();
+      $scope.$apply();
+    }
   })
 });
 

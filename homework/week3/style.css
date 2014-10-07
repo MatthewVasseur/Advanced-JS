@@ -1,0 +1,10 @@
+.link {
+  color: blue; cursor: pointer; text-decoration: underline;
+}
+.item.done {
+  text-decoration: line-through;
+}
+
+input.undoShow {
+  disabled: true;
+}
