@@ -1,4 +1,4 @@
-var helloAngular = angular.module("HelloAngular", []);
+var helloAngular = angular.module("HelloAngular", []); //ONLY the first time
 
 helloAngular.controller("HelloCtrl", function($scope) {
   $scope.logText = function() {
