@@ -7,30 +7,31 @@ angular.module("Todo", []).controller("TodoCtrl", function($scope, $window) {
     { text: "Do homework"},
     { text: "Pump iron" }
   ]
+
   $scope.addItem = function() {
     if ($scope.newItem.text) {
       $scope.todoList.push($scope.newItem);
       $scope.newItem = {};
     }
   }
+
   $scope.toggleDone = function(index) {
     $scope.undoStack.push($scope.todoList.splice(index, 1)[0]);
   }
 
   $scope.undo = function () {
-    console.log($scope.todoList);
     if ($scope.undoStack.length > 0) {
       $scope.todoList.push($scope.undoStack.pop());
     }
-
   }
 
   // Ex. 2 Bonus: Detect all keypresses
   angular.element($window).bind("keypress", function(e) {
-    if (e.charCode == 26) {
+    if (e.which === 26) {
       $scope.undo();
       $scope.$apply();
     }
   })
+
 });
 
