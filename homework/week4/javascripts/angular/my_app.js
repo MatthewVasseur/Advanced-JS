@@ -7,8 +7,8 @@ angular.module("MyApp", ["ui.router"])
         controller: "GameCtrl"
       })
       .state("winner", {
-        url: "/winner",
-        templateUrl: "./templates/winner.html",
+        url: "/winner/:points/:time",
+        templateUrl: "./templates/winner.html"
       });
     // Make the default route "/" instead of nothing
     $urlRouterProvider.otherwise("/");

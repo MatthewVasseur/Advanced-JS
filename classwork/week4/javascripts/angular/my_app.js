@@ -3,7 +3,8 @@ angular.module("MyApp", ["ui.router"])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider.state("home", {
     url: "/",
-    templateUrl: "./templates/home.html"
+    templateUrl: "./templates/home.html",
+    controller: "GameCtrl"
   })
   .state("profile", {
     url:"/profile",
